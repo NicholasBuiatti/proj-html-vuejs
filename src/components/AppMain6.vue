@@ -1,10 +1,10 @@
 <script>
 // import FILE from 'PERCORSO';
-import AppMain4 from './components/AppMain4.vue';
+
 export default {
     name: "",
     components: {
-        AppMain4,
+
     },
     props: {
     },
@@ -15,13 +15,17 @@ export default {
     },
     methods: {
     },
+    created() {
+
+    },
     mounted() {
+
     }
 }
 </script>
 
 <template>
-    <AppMain4 />
+
 </template>
 
 <style scoped></style>
