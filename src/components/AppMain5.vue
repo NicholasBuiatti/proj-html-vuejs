@@ -1,15 +1,17 @@
 <script>
 // import FILE from 'PERCORSO';
-
+import AppMainTop from './AppMainTop.vue'
+import store from '../data/store.js'
 export default {
     name: "",
     components: {
-
+        AppMainTop
     },
     props: {
     },
     data() {
         return {
+            store,
             games: [
                 {
                     imgGame: "protfolio1.png",
@@ -39,15 +41,7 @@ export default {
             let risultato = new URL(`../assets/${gameImg}`, import.meta.url);
             return risultato.href;
         },
-        next() {
-            this.games.push(this.games[0])
-            this.games.shift()
-        },
-        back() {
-            let lastImg = this.games[this.games.length - 1]
-            this.games.unshift(lastImg)
-            this.games.pop()
-        }
+
     },
     created() {
 
@@ -61,23 +55,9 @@ export default {
 <template>
     <section>
         <div class="container">
-            <div class="row mb-3 justify-content-between">
-                <div class="col-6">
-                    <h5 class="text-success">Trending Games</h5>
-                    <h1 class="text-white">Choose Who Is The Best In World!</h1>
-                </div>
-                <div class="col-2 text-end align-self-end">
-                    <button @click="next()" class="rounded-circle">
-                        <img src="../assets/image (11).svg" style="height: 1rem; " alt="">
-                    </button>
-                    <button class="rounded-circle">
-                        <img @click="back()" src="../assets/image (12).svg" style="height: 1rem; " alt="">
-                    </button>
-                </div>
-
-            </div>
+            <AppMainTop titleSection="Trending Games" title="Choose Who Is The Best In World!" :arrayGames="games" />
             <div class="row justify-content-between">
-                <div v-for="card, i in games" class="card p-0 myBg " id="InfoGame" style="width: 18rem;">
+                <div v-for="card, i in games" class="card p-0 myBg" id="InfoGame" style="width: 18rem;">
                     <span class="position-absolute top-0 start-0 p-2">New</span>
                     <img :src="getImg(card.imgGame)" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -106,9 +86,7 @@ section {
     padding: 10rem 0;
 }
 
-h1 {
-    font-size: 4rem;
-}
+
 
 .myBg {
     background-color: rgb(32, 32, 70);
@@ -120,14 +98,6 @@ a {
     background-color: rgb(5, 204, 124);
 }
 
-button {
-    width: 3rem;
-    aspect-ratio: 1;
-}
-
-button:hover {
-    background-color: rgb(0, 172, 77);
-}
 
 span {
     background-color: rgb(5, 204, 124);

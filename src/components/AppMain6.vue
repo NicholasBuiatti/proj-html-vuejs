@@ -1,10 +1,10 @@
 <script>
 // import FILE from 'PERCORSO';
-
+import AppMainTop from './AppMainTop.vue'
 export default {
     name: "",
     components: {
-
+        AppMainTop
     },
     props: {
     },
@@ -27,20 +27,7 @@ export default {
 <template>
     <section class="">
         <div class="container">
-            <div class="row mb-3 justify-content-between">
-                <div class="col-6">
-                    <h5 class="text-success">Upcoming Match</h5>
-                    <h1 class="text-white">Keep Eyes & Manage upcoming Battle</h1>
-                </div>
-                <div class="col-2 text-end align-self-end">
-                    <button @click="next()" class="rounded-circle">
-                        <img src="../assets/image (11).svg" style="height: 1rem; " alt="">
-                    </button>
-                    <button class="rounded-circle">
-                        <img @click="back()" src="../assets/image (12).svg" style="height: 1rem; " alt="">
-                    </button>
-                </div>
-            </div>
+            <AppMainTop titleSection="Trending Games" title="Choose Who Is The Best In World!" :arrayGames="games" />
             <div class="row justify-content-around">
                 <div class="col-4 p-4 rounded" id="infoMatch">
                     <div class="text-end position-relative" id="containerImgMatch">

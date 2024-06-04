@@ -124,22 +124,22 @@ const myData = reactive({
     ],
     games: [
         {
-            imgGame: "../assets/protfolio1.png",
+            imgGame: "protfolio1.png",
             nameGame: "Assassin's Creed",
             descGame: "Donec solliucidum malesuada."
         },
         {
-            imgGame: "../assets/protfolio2.png",
+            imgGame: "protfolio2.png",
             nameGame: "Call of Duty",
             descGame: "Donec solliucidum malesuada."
         },
         {
-            imgGame: "../assets/protfolio3.png",
+            imgGame: "protfolio3.png",
             nameGame: "Tomb Raider",
             descGame: "Donec solliucidum malesuada."
         },
         {
-            imgGame: "../assets/protfolio4.png",
+            imgGame: "protfolio4.png",
             nameGame: "Mortal Combat X",
             descGame: "Donec solliucidum malesuada."
         },
