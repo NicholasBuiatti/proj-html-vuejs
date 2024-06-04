@@ -39,6 +39,15 @@ export default {
             let risultato = new URL(`../assets/${gameImg}`, import.meta.url);
             return risultato.href;
         },
+        next() {
+            this.games.push(this.games[0])
+            this.games.shift()
+        },
+        back() {
+            let lastImg = this.games[this.games.length - 1]
+            this.games.unshift(lastImg)
+            this.games.pop()
+        }
     },
     created() {
 
@@ -58,17 +67,18 @@ export default {
                     <h1 class="text-white">Choose Who Is The Best In World!</h1>
                 </div>
                 <div class="col-2 text-end align-self-end">
-                    <button class="rounded-circle">
+                    <button @click="next()" class="rounded-circle">
                         <img src="../assets/image (11).svg" style="height: 1rem; " alt="">
                     </button>
                     <button class="rounded-circle">
-                        <img src="../assets/image (12).svg" style="height: 1rem; " alt="">
+                        <img @click="back()" src="../assets/image (12).svg" style="height: 1rem; " alt="">
                     </button>
                 </div>
 
             </div>
             <div class="row justify-content-between">
-                <div v-for="card, i in games" class="card p-0 myBg" style="width: 18rem;">
+                <div v-for="card, i in games" class="card p-0 myBg " style="width: 18rem;">
+                    <span class="bg-success position-absolute top-0 start-0 p-2">New</span>
                     <img :src="getImg(card.imgGame)" class="card-img-top" alt="...">
                     <div class="card-body">
                         <div class="row justify-content-between align-items-center">
@@ -116,6 +126,5 @@ button {
 
 button:hover {
     background-color: rgb(0, 172, 77);
-    width: 3rem;
 }
 </style>
