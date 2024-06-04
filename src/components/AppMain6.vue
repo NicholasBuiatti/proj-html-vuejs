@@ -42,8 +42,8 @@ export default {
                 </div>
             </div>
             <div class="row justify-content-around">
-                <div class="col-5 p-5 rounded" id="infoMatch">
-                    <div class="text-end rounded position-relative" id="containerImgMatch">
+                <div class="col-4 p-4 rounded" id="infoMatch">
+                    <div class="text-end position-relative" id="containerImgMatch">
                         <img src="../assets/m1.png" class="bg-opacity-75" id="bgImg" alt="">
                         <img src="../assets/1.png"
                             class="h-75 position-absolute position-absolute top-50 start-50 translate-middle" alt="">
@@ -56,25 +56,7 @@ export default {
                                 class="imgLink" alt=""></a>
                         <h4 class="mt-3">10.45</h4>
                         <p>1st November, 2022</p>
-                        <button type="button" class="btn btn-success myBtn">View More</button>
-                    </div>
-
-                </div>
-                <div class="col-5 p-5 rounded" id="infoMatch">
-                    <div class="text-end rounded position-relative" id="containerImgMatch">
-                        <img src="../assets/m1.png" class="bg-opacity-75" id="bgImg" alt="">
-                        <img src="../assets/1.png"
-                            class="h-75 position-absolute position-absolute top-50 start-50 translate-middle" alt="">
-                    </div>
-                    <div class="text-white text-center pt-4">
-                        <h2>Team</h2>
-                        <a href="" class="d-inline-block rounded-circle"><img src="../assets/image (13).svg"
-                                class="imgLink" alt=""></a>
-                        <a href="" class="d-inline-block rounded-circle ms-2"><img src="../assets/image (14).svg"
-                                class="imgLink" alt=""></a>
-                        <h4 class="mt-3">10.45</h4>
-                        <p>1st November, 2022</p>
-                        <button type="button" class="btn btn-success myBtn">View More</button>
+                        <button type="button" class="btn myBtn">View More</button>
                     </div>
 
                 </div>
@@ -111,6 +93,10 @@ h1 {
     font-size: 4rem;
 }
 
+h4 {
+    font-size: 4rem;
+}
+
 button {
     width: 3rem;
     aspect-ratio: 1;
@@ -122,15 +108,17 @@ button:hover {
 
 #containerImgMatch {
     background-color: rgb(26, 25, 53);
+    border-radius: 25px;
 }
 
 #bgImg {
-    filter: brightness(30%);
+    filter: brightness(50%);
     opacity: 0.3;
 }
 
 #infoMatch {
     background-color: rgb(32, 32, 70);
+    width: calc(100% / 3 - 0.5rem);
 }
 
 .imgLink {
@@ -148,5 +136,13 @@ a {
 .myBtn {
     width: 7rem;
     aspect-ratio: 0;
+    color: black;
+    background-color: rgb(5, 204, 124);
+}
+
+.myBtn:hover {
+    background-color: rgb(32, 32, 70);
+    color: rgb(5, 204, 124);
+    border: 1px solid rgb(5, 204, 124);
 }
 </style>
