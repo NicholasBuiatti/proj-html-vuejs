@@ -27,73 +27,54 @@ const myData = reactive({
     squads: [
         {
             ImgSmall: '1.png',
-            imgMid: 't3.png',
             imgBig: 'm1.png',
             name: 'Ninga Gaming',
-            state: 'italy'
         },
         {
             ImgSmall: '5.png',
-            imgMid: 't4.png',
             imgBig: 'm2.png',
             name: 'Witch Gaming',
-            state: 'italy'
         },
         {
             ImgSmall: '3.png',
-            imgMid: '',
             imgBig: 'm3.png',
             name: 'SkullG Gaming',
-            state: 'italy'
         },
         {
             ImgSmall: '2.png',
-            imgMid: 't1.png',
             imgBig: '',
             name: 'King Gaming',
-            state: 'italy'
         },
         {
             ImgSmall: '6.png',
-            imgMid: 't2.png',
             imgBig: '',
             name: 'Witch Astro',
-            state: 'italy'
         },
         {
             ImgSmall: '1.png',
-            imgMid: 't5.png',
             imgBig: '',
             name: 'Dng Gaming',
-            state: 'italy'
         },
         {
             ImgSmall: '1.png',
-            imgMid: 't6.png',
             imgBig: '',
             name: 'Joker Gaming',
-            state: 'italy'
         },
         {
             ImgSmall: '1.png',
-            imgMid: 't8.png',
             imgBig: '',
-            name: 'Krull Gaming',
-            state: 'italy'
+            name: 'Krull Gaming'
         },
         {
             ImgSmall: '4.png',
-            imgMid: '',
             imgBig: '',
-            name: 'Panda Gaming',
-            state: 'italy'
+            name: 'Panda Gaming'
         },
         {
             ImgSmall: '1.png',
-            imgMid: 't7.png',
             imgBig: '',
             name: 'Shark Gaming',
-            state: 'italy'
+
         },
     ],
     tester: [
@@ -120,28 +101,6 @@ const myData = reactive({
             nameTester: "Mohammed Salah",
             roleTester: "CEO/Founder",
             DescTester: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore quaerat eligendi inventore voluptatum dolores minus."
-        },
-    ],
-    games: [
-        {
-            imgGame: "protfolio1.png",
-            nameGame: "Assassin's Creed",
-            descGame: "Donec solliucidum malesuada."
-        },
-        {
-            imgGame: "protfolio2.png",
-            nameGame: "Call of Duty",
-            descGame: "Donec solliucidum malesuada."
-        },
-        {
-            imgGame: "protfolio3.png",
-            nameGame: "Tomb Raider",
-            descGame: "Donec solliucidum malesuada."
-        },
-        {
-            imgGame: "protfolio4.png",
-            nameGame: "Mortal Combat X",
-            descGame: "Donec solliucidum malesuada."
         },
     ],
     shop: [

@@ -37,11 +37,11 @@ export default {
 
 <template>
     <div class="row mb-3 justify-content-between">
-        <div class="col-6">
+        <div class="col-8">
             <h5 class="text-success">{{ titleSection }}</h5>
             <h1 class="text-white">{{ title }}</h1>
         </div>
-        <div class="col-2 text-end align-self-end">
+        <div class="col-3 text-end align-self-end">
             <button @click="next()" class="rounded-circle">
                 <img src="../assets/image (11).svg" style="height: 1rem; " alt="">
             </button>
