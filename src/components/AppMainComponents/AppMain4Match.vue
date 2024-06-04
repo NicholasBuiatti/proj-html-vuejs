@@ -51,7 +51,7 @@ export default {
                 <p>Nulla porttitor accumsan tincidunt. Vivamus magna justo, lacinia eget consectetur sed, convallis at
                     tellus. Vivamus magna justo.</p>
             </div>
-            <div class="col-4 rounded p-3 myBgColorCard">
+            <div class="col-4 rounded p-3 myBgColorCard" id="infoMatch">
                 <h4>10.45</h4>
                 <p>1st November, 2022</p>
                 <a href="" class="d-inline-block rounded-circle"><img src="../../assets/image (13).svg" class="imgLink"
@@ -84,6 +84,10 @@ h2 {
     background-color: rgb(26, 25, 53);
 }
 
+h4 {
+    font-size: 2rem;
+}
+
 .imgLink {
     color: white;
     width: 1.5rem;
@@ -94,5 +98,23 @@ a {
     background-color: rgb(00, 172, 77);
     width: 3rem;
     line-height: 3rem;
+}
+
+.cardMatch:hover {
+    background-color: rgb(51, 50, 135);
+    border: unset;
+}
+
+.cardMatch:hover #infoMatch {
+    background-color: rgb(5, 204, 124);
+    color: black;
+}
+
+.cardMatch:hover a {
+    background-color: rgb(26, 25, 53);
+}
+
+.cardMatch:hover .imgLink {
+    filter: invert(100%);
 }
 </style>

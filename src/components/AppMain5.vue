@@ -77,8 +77,8 @@ export default {
 
             </div>
             <div class="row justify-content-between">
-                <div v-for="card, i in games" class="card p-0 myBg " style="width: 18rem;">
-                    <span class="bg-success position-absolute top-0 start-0 p-2">New</span>
+                <div v-for="card, i in games" class="card p-0 myBg " id="InfoGame" style="width: 18rem;">
+                    <span class="position-absolute top-0 start-0 p-2">New</span>
                     <img :src="getImg(card.imgGame)" class="card-img-top" alt="...">
                     <div class="card-body">
                         <div class="row justify-content-between align-items-center">
@@ -86,8 +86,8 @@ export default {
                                 <h5 class="card-title">{{ card.nameGame }}</h5>
                                 <p class="card-text">{{ card.descGame }}</p>
                             </div>
-                            <a href="#" class="btn btn-success rounded-circle">
-                                <img src="../assets/image (9).svg" alt="">
+                            <a href="#" class="btn rounded-circle">
+                                <img src="../assets/image (9).svg" alt="" id="iconPlay">
                             </a>
                         </div>
                     </div>
@@ -117,6 +117,7 @@ h1 {
 a {
     width: 3rem;
     height: 3rem;
+    background-color: rgb(5, 204, 124);
 }
 
 button {
@@ -126,5 +127,23 @@ button {
 
 button:hover {
     background-color: rgb(0, 172, 77);
+}
+
+span {
+    background-color: rgb(5, 204, 124);
+}
+
+#InfoGame:hover {
+    background-color: rgb(5, 204, 124);
+    border: none;
+}
+
+#InfoGame:hover a {
+    background-color: rgb(32, 32, 70);
+
+}
+
+#InfoGame:hover #iconPlay {
+    filter: invert(100%);
 }
 </style>
