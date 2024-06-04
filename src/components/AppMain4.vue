@@ -58,7 +58,7 @@ export default {
 <template>
     <section>
         <div class="container text-center">
-            <p class="text-success">Trending Battle</p>
+            <h5 class="text-success">Trending Battle</h5>
             <h1 class="text-white">Upcoming Match</h1>
             <ul class="list-group list-group-horizontal justify-content-center mb-3">
                 <li class="list-group-item">All</li>
