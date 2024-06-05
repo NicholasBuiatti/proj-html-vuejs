@@ -80,23 +80,55 @@ export default {
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="row justify-content-between">
+        <div class="container rounded pt-4 pb-4" id="newsLetter">
+            <div class="row align-items-center justify-content-around p-3">
                 <h2 class="col-4 text-white">Our news Letter</h2>
-                <div class="col-7 input-group mb-3">
-                    <input type="text" class="col-7 form-control" placeholder="Recipient's username"
-                        aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+                <div class="col-5 rounded-pill row justify-content-around align-items-center p-2" id="emailContainer">
+                    <div class="col-8">
+                        <i class="fas fa-message"></i>
+                        <input type="text" placeholder="Enter Your Email" class="col-9">
+                    </div>
+                    <button class="col-3 rounded-pill" type="submit">Subscribe</button>
+
                 </div>
             </div>
+        </div>
+        <div class="col-lg-6">
+
         </div>
     </section>
 </template>
 
 <style scoped>
+#emailContainer i {
+    color: rgb(0, 172, 77);
+    margin-right: 0.5rem;
+}
+
+#emailContainer>button {
+    font-weight: 600;
+    width: 7rem;
+    height: 2.5rem;
+    background-color: rgb(0, 172, 77);
+}
+
+input {
+    background-color: rgb(26, 25, 53);
+    border: none;
+}
+
+input:focus {
+    border: none;
+}
+
+#emailContainer {
+    background-color: rgb(26, 25, 53);
+}
+
 section {
     background-color: rgb(26, 25, 53);
-    padding: 5rem 0;
+    padding: 5rem 0 10rem 0;
+    position: relative;
 }
 
 p {
@@ -142,5 +174,15 @@ p>i {
     background-color: rgb(32, 32, 70);
     color: rgb(5, 204, 124);
     border: 1px solid rgb(5, 204, 124);
+}
+
+/*******************************/
+#newsLetter {
+    background-color: rgb(32, 32, 70);
+    position: absolute;
+    bottom: -7%;
+    transform: translateY(-50%);
+    left: 50%;
+    transform: translateX(-50%);
 }
 </style>
