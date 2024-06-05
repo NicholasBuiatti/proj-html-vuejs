@@ -82,14 +82,17 @@ export default {
                             class="card-img-top w-50 h-75 position-absolute top-50 start-50 translate-middle">
                         <div class="mb-5 w-100 row justify-content-center position-absolute bottom-0 start-50 translate-middle-x"
                             id="plus">
-                            <div class="col-3 mycircle">
-                                <img class="w-75" src="../assets/image (16).svg" alt="">
+                            <div class="col-3 mycircle position-relative">
+                                <img class="w-50 position-absolute top-50 start-50 translate-middle"
+                                    src="../assets/image (16).svg" alt="">
                             </div>
-                            <div class="col-3 mycircle">
-                                <img class="w-75" src="../assets/image (17).svg" alt="">
+                            <div class="col-3 mycircle position-relative">
+                                <img class="w-50 position-absolute top-50 start-50 translate-middle"
+                                    src="../assets/image (17).svg" alt="">
                             </div>
-                            <div class="col-3 mycircle">
-                                <img class="w-75" src="../assets/image (18).svg" alt="">
+                            <div class="col-3 mycircle position-relative">
+                                <img class="w-50 position-absolute top-50 start-50 translate-middle"
+                                    src="../assets/image (18).svg" alt="">
                             </div>
 
 
@@ -97,8 +100,9 @@ export default {
                     </figure>
                     <div class="card-body">
                         <div class="text-white">
-                            <img v-for="star in item.rate" src="../assets/image (19).svg" alt="" id="star">
-                            <img v-for="Nostar in (5 - item.rate)" src="../assets/image (18).svg" alt="" id="star">
+                            <span v-for="star in item.rate" id="star"><i
+                                    class="fa-solid fa-star-half-stroke"></i></span>
+                            <span v-for="star in (5 - item.rate)"><i class="fa-solid fa-star-half-stroke"></i></span>
                             <h3 class="card-title">{{ item.item }}</h3>
                             <p class="card-text text-success">{{ item.price }}</p>
                         </div>
@@ -174,5 +178,6 @@ figure:hover #plus {
 #star {
     width: 1.5rem;
     height: 1.5rem;
+    color: rgb(0, 172, 77);
 }
 </style>
