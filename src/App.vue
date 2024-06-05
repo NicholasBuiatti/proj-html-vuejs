@@ -1,7 +1,7 @@
 <script>
 // import FILE from 'PERCORSO';
 import AppHeader from './components/AppHeader.vue';
-import AppMain1 from './components/AppMain1.vue';
+import appMainUno from './components/appMainUno.vue';
 import AppMain4 from './components/AppMain4.vue';
 import AppMain5 from './components/AppMain5.vue';
 import AppMain6 from './components/AppMain6.vue';
@@ -9,7 +9,7 @@ export default {
     name: "",
     components: {
         AppHeader,
-        AppMain1,
+        appMainUno,
         AppMain4,
         AppMain5,
         AppMain6,
@@ -30,7 +30,7 @@ export default {
 
 <template>
     <AppHeader />
-    <AppMain1 />
+    <appMainUno />
     <AppMain4 />
     <AppMain5 />
     <AppMain6 />
