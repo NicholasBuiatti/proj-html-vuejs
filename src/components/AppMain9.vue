@@ -83,13 +83,13 @@ export default {
                         <div class="mb-5 w-100 row justify-content-center position-absolute bottom-0 start-50 translate-middle-x"
                             id="plus">
                             <div class="col-3 mycircle">
-                                <img class="w-100" src="../assets/image (16).svg" alt="">
+                                <img class="w-75" src="../assets/image (16).svg" alt="">
                             </div>
                             <div class="col-3 mycircle">
-                                <img class="w-100" src="../assets/image (17).svg" alt="">
+                                <img class="w-75" src="../assets/image (17).svg" alt="">
                             </div>
                             <div class="col-3 mycircle">
-                                <img class="w-100" src="../assets/image (18).svg" alt="">
+                                <img class="w-75" src="../assets/image (18).svg" alt="">
                             </div>
 
 
@@ -172,8 +172,7 @@ figure:hover #plus {
 }
 
 #star {
-    width: 2.5rem;
-    height: 2.5rem;
-    fill: aquamarine;
+    width: 1.5rem;
+    height: 1.5rem;
 }
 </style>
