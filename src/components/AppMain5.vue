@@ -41,13 +41,23 @@ export default {
             let risultato = new URL(`../assets/${gameImg}`, import.meta.url);
             return risultato.href;
         },
+        // LAVORARE QUI PER SISTEMARE L'ANIMAZIONE
+        next() {
+            this.games.push(this.games[0])
+            this.games.shift()
+
+        },
+        carouselTimer() {
+            setInterval(this.next, 1000);
+        },
+
 
     },
     created() {
 
     },
     mounted() {
-
+        this.carouselTimer()
     }
 }
 </script>
