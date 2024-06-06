@@ -9,6 +9,7 @@ import AppMain7 from './components/AppMain7.vue';
 import AppMain8 from './components/AppMain8.vue';
 import AppMain9 from './components/AppMain9.vue';
 import AppMain10 from './components/AppMain10.vue';
+import AppFooter from './components/AppFooter.vue';
 export default {
     name: "",
     components: {
@@ -21,6 +22,7 @@ export default {
         AppMain8,
         AppMain9,
         AppMain10,
+        AppFooter
     },
     props: {
     },
@@ -46,6 +48,7 @@ export default {
     <AppMain8 />
     <AppMain9 />
     <AppMain10 />
+    <AppFooter />
 </template>
 
 <style scoped></style>

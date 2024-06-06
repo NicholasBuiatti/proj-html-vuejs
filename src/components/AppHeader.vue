@@ -1,19 +1,55 @@
 <script>
     import store from '../data/store.js';
 
-    export default {
-        data() {
-            return {
-                store,
-            }        
+export default {
+    data() {
+        return {
+            store,
+            isFixed: false,
+            items: [
+                { id: 1, name: 'Sony PS5 White', img: 'cart1.png', price: 254 },
+                { id: 2, name: 'A4 Tec Mouse', img: 'cart2.png', price: 121 },
+                { id: 3, name: 'Gear VR Led', img: 'cart3.png', price: 514 }
+            ]
+        }        
+    },
+
+    
+    mounted() {
+        window.addEventListener('scroll', this.handleScroll);
+    },
+    
+    beforeDestroy() {
+        window.removeEventListener('scroll', this.handleScroll);
+    },
+    
+    computed: {
+        total() {
+            return this.items.reduce((sum, item) => sum + item.price, 0);
+        }
+    },
+    
+    methods: {
+        handleScroll() {
+            this.isFixed = window.scrollY > 260; 
+        },
+        
+        removeFromCart(itemId) {
+            this.items = this.items.filter(item => item.id !== itemId);
+        },
+
+        getImg (gameImg) {
+            let risultato = new URL (`../assets/${gameImg}`, import.meta.url);
+            return risultato.href;
         }
     }
+}
 </script>
 
 <template>
     <header class="my-bg">
         <!-- Sezione nav bar -->
-        <div class="flex row align-items-center justify-content-center py-3 px-0 w-100 my-fixed">
+        <div class="flex row align-items-center justify-content-center py-3 px-0 w-100 my-fixed" :class="{ 'navbar-fixed': isFixed}">
                 
             <!-- Logo Section -->
             <figure class="col-1 mx-0 px-0">
@@ -24,7 +60,7 @@
             <nav class="col-5 p-0">
                 <div class=" flex row m-0 p-0 px-2 w-100 justify-content-center">
                     <div class="dropdown col-1">
-                        <button class="btn dropdown-toggle text-light border-none" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn dropdown-toggle text-light border-none hover" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             HOME
                         </button>
                         <ul class="dropdown-menu bg-violet">
@@ -35,7 +71,7 @@
                         </ul>
                     </div>
                     <div class="dropdown col-1">
-                        <button class="btn dropdown-toggle text-light border-none" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn dropdown-toggle text-light border-none hover" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             PAGES
                         </button>
                         <ul class="dropdown-menu bg-violet">
@@ -48,12 +84,12 @@
                             </ul>
                     </div>
                     <div class="my-width">
-                        <button class="btn  text-light border-none" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn  text-light border-none hover" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             TOURNAMENT
                         </button>
                     </div>
                     <div class="dropdown col-1">
-                        <button class="btn dropdown-toggle text-light border-none" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn dropdown-toggle text-light border-none hover" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             SHOP
                         </button>
                         <ul class="dropdown-menu bg-violet">
@@ -72,7 +108,7 @@
                         </ul>        
                     </div>
                     <div class="col-1">
-                        <button class="btn text-light border-none" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn text-light border-none hover" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         CONTACT
                         </button>
                     </div>     
@@ -80,7 +116,7 @@
             </nav>
             
             <!-- Sezione Shop -->
-            <div class="col-1 flex row justify-content-between m-0 p-0">
+            <div class="col-1 flex row justify-content-center m-0 p-0">
                 <div class="col-6">
                     <div class="btn-group dropstart">
                         <button type="button" class="btn bg-light my-size shop-zone rounded-5" data-bs-toggle="dropdown" aria-expanded="false">
@@ -92,18 +128,31 @@
                         </ul>
                       </div>
                 </div>
-                <div class="col-6">
-                    <div class="btn-group dropstart">
-                        <button type="button" class="btn bg-light my-size shop-zone rounded-5" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa-solid fa-bag-shopping violet-c"></i>
-                        </button>
-                        <ul class="dropdown-menu m-2 bg-violet">
-                            <li></li>
-                        </ul>
-                      </div>
-                </div>
+                <div class="dropdown col-6">
+                    <button type="button" class="btn bg-light my-size shop-zone rounded-5" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-bag-shopping violet-c"></i>
+                    </button>
+                    <div class="dropdown-menu bg-violet" aria-labelledby="dropdownMenuButton">
+                        <div class="shopping-cart">
+                            <div v-for="item in items" :key="item.id" class="cart-item dropdown-item ">
+                                <img :src="getImg(item.img)" :alt="item.name">
+                                <div class="item-details">
+                                    <h3 class="text-green">{{ item.name }}</h3>
+                                    <p class="price text-green">€{{ item.price }}</p>
+                                </div>
+                                <button class="btn btn-green" @click="removeFromCart(item.id)">Rimuovi</button>
+                            </div>
+                        <div class="checkout dropdown-item">
+                            <p class="text-green">Totale: €{{ total }}</p>
+                            <button class="btn btn-green" @click="checkout">Vai al Pagamento</button>
+                        </div>
+                    </div>
+                    </div>
+                  </div>
             </div>
         </div>
+        
+        <!-- Sezione Carosello -->
         <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item carousel-image bg-img-1 active">
@@ -165,27 +214,27 @@
     .my-bg {
         color: white;
     }
-    
     .my-con {
         position: absolute;
         top: 0;
         left: 50%;
         translate: -50% 0;
     }
+
     .bg-img-1 {
         background-image: url(../assets/banner1.png);
-      }
+    }
     
-      .bg-img-2 {
+    .bg-img-2 {
         background-image: url(../assets/bg1.png);
-      }
+    }
     
       .bg-img-3 {
         background-image: url(../assets/bg2.png);
       }
     
       .carousel-image {
-        height: 90vh;
+        height: 100vh;
         background-repeat: no-repeat;
         background-size: cover;
         background-position: top;
@@ -198,10 +247,16 @@
         
     }
     
+    
     .my-fixed {
         position: fixed;
         top: 0;
+        transition: background-color 0.3s ease;
         z-index: 3;
+    }
+
+    .navbar-fixed {
+        background-color: rgba(000,000,000, 0.5);
     }
 
     li {
@@ -245,6 +300,13 @@
         background-color: #202046;
     }
 
+    .dropdown-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        
+      }
+
     .my-size {
         width: 40px;
         height: 40px;
@@ -259,7 +321,7 @@
     .banner-social {
         position: absolute;
         left: -20%;
-        transform: translate(-50%, 125%);
+        transform: translate(-50%, 150%);
     }
 
     .banner-social > li {
