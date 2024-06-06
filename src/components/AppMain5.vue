@@ -1,7 +1,6 @@
 <script>
 // import FILE from 'PERCORSO';
 import AppMainTop from './AppMainTop.vue'
-import store from '../data/store.js'
 export default {
     name: "",
     components: {
@@ -11,7 +10,6 @@ export default {
     },
     data() {
         return {
-            store,
             games: [
                 {
                     imgGame: "protfolio1.png",

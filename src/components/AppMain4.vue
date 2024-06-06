@@ -1,6 +1,5 @@
 <script>
 // import FILE from 'PERCORSO';
-import store from '../data/store.js'
 export default {
     name: "AppMain4",
     components: {
@@ -9,7 +8,6 @@ export default {
     },
     data() {
         return {
-            store,
             matches: [
                 {
                     visible: true,
