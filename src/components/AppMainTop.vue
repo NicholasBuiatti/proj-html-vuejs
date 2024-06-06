@@ -12,19 +12,35 @@ export default {
     },
     data() {
         return {
+            //     lastImg: 3,
+            //     firstImg: 0,
         }
     },
     methods: {
         next() {
             this.arrayGames.push(this.arrayGames[0])
             this.arrayGames.shift()
-
         },
         back() {
             let lastImg = this.arrayGames[this.arrayGames.length - 1]
             this.arrayGames.unshift(lastImg)
             this.arrayGames.pop()
-        }
+        },
+        // classDNone(index) {
+        //     if (index >= this.firstImg && index < this.lastImg) {
+        //         return ''
+        //     } else {
+        //         return 'd-none'
+        //     }
+        // },
+        // next(arryaList) {
+        //     this.lastImg++;
+        //     this.firstImg++;
+        //     if (this.lastImg == arryaList.length + 1) {
+        //         this.firstImg = (arryaList.length - 3)
+        //         this.lastImg = arryaList.length
+        //     }
+        // },
     },
     created() {
 

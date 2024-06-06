@@ -34,6 +34,8 @@ export default {
                     descGame: "Donec solliucidum malesuada."
                 },
             ],
+            firstImg: 1,
+            lastImg: 4,
         }
     },
     methods: {
@@ -41,23 +43,63 @@ export default {
             let risultato = new URL(`../assets/${gameImg}`, import.meta.url);
             return risultato.href;
         },
-        // LAVORARE QUI PER SISTEMARE L'ANIMAZIONE
-        next() {
+        duplicate(arryaList) {
+            arryaList.push(arryaList[0]);
+            let lastImg = arryaList[arryaList.length - 2]
+            arryaList.unshift(lastImg)
+            console.log(arryaList);
+        },
+        raddoppia() {
             this.games.push(this.games[0])
+            let lastImg = this.games[this.games.length - 2]
+            this.games.unshift(lastImg)
+            // SETINTERVALL CHE OGNI TOT SECONDI MI TAGLIA UN IMMAGINE
+        },
+
+        // LAVORARE QUI PER SISTEMARE L'ANIMAZIONE
+        tagliaImg() {
             this.games.shift()
-
+            console.log('ciao');
         },
+        avanti(arrayList) {
+            arrayList.push(arrayList[2]);
+            arrayList.shift()
+        },
+        indietro(arrayList) {
+            let lastImg = arrayList[arrayList.length - 3]
+            arrayList.unshift(lastImg)
+            arrayList.pop()
+        },
+
         carouselTimer() {
-            setInterval(this.next, 1000);
+            setInterval(function () {
+                this.games.shift()
+                console.log('ciao');
+            }, 5000)
         },
+        desapearFunction(index) {
+            // setTimeout(function () {
+            //     this.games.shift()
+            // }, 5000)
+            if (this.games[index] == this.games[0]) {
+                return 'desapear'
+            } else {
+                return ''
+            }
 
-
+        },
     },
     created() {
 
     },
     mounted() {
-        this.carouselTimer()
+        // this.carouselTimer()
+        this.raddoppia()
+
+        setInterval(function () {
+            this.tagliaImg()
+            console.log('ciao');
+        }, 5000)
     }
 }
 </script>
@@ -66,8 +108,14 @@ export default {
     <section>
         <div class="container">
             <AppMainTop titleSection="Trending Games" title="Choose Who Is The Best In World!" :arrayGames="games" />
-            <div class="row justify-content-between">
-                <div v-for="card, i in games" class="card p-0 myBg" id="InfoGame" style="width: 18rem;">
+
+            <button @click="indietro(games)">indietro</button>
+            <button @click="">avanti</button>
+
+            <div class="row justify-content-between flex-nowrap overflow-auto" style="width: 94%; margin: 0 auto;"
+                id="pippo">
+                <div v-for=" card, i in games" class="card p-0 myBg m-2 float-start" id="
+                    InfoGame" style="width: 18rem;">
                     <span class="position-absolute top-0 start-0 p-2">New</span>
                     <img :src="getImg(card.imgGame)" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -125,5 +173,34 @@ span {
 
 #InfoGame:hover #iconPlay {
     filter: invert(100%);
+}
+
+/* ANIMAZIONE */
+.desapear {
+    animation: desapear 5s infinite ease-in-out;
+}
+
+/* .appear {
+    animation: appear 15s infinite ease-in-out;
+}
+
+@keyframes appear {
+    from {
+        max-width: 0rem;
+    }
+
+    to {
+        width: 18rem;
+    }
+} */
+
+@keyframes desapear {
+    from {
+        max-width: 18rem;
+    }
+
+    to {
+        width: 0rem;
+    }
 }
 </style>
